@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
-    <title>Sobre Nós - DevAcademy</title>
+    <title>Sobre Nós | DevAcademy</title>
 </head>
 <body>
-    <header>
-        <h1>DevAcademy</h1>
-        <p id="slogan">Transformando o futuro através do código</p>
+    <header class="cabecalho-principal">
+        <div class="logo">Dev<span>Academy</span></div>
         <nav>
-            <ul class="menu">
+            <ul class="menu-flex">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
@@ -19,19 +18,55 @@
         </nav>
     </header>
 
-    <main>
-        <article class="historia">
-            <h2>Nossa História</h2>
-            <p>Fundada em 2024, a DevAcademy surgiu da necessidade de formar profissionais capacitados para o mercado de trabalho digital [8].</p>
-            <h3>Desenvolvedores</h3>
-            <p>Nossa equipe é composta por especialistas em <strong>Front-end</strong> e <strong>Back-end</strong> [8, 10].</p>
-        </article>
+    <main class="sobre-container">
+        <!-- Hero da Página Sobre -->
+        <section class="sobre-hero">
+            <h1>Nossa Missão é <br> Codificar o Amanhã</h1>
+            <p>Conheça a história por trás da maior academia de tecnologia da região.</p>
+        </section>
+
+        <!-- Seção de História com Grid de duas colunas -->
+        <section class="historia-grid">
+            <article class="texto-historia">
+                <h2>Nossa Jornada</h2>
+                <p>A DevAcademy nasceu em 2024, dentro do Instituto Federal, com o propósito de democratizar o acesso ao desenvolvimento web de alto nível [7].</p>
+                <p>Acreditamos que o código é o "esqueleto" da inovação e o design é a "pele" que conecta humanos à tecnologia [8].</p>
+            </article>
+            <figure class="imagem-historia">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Equipe DevAcademy trabalhando">
+                <figcaption>Desenvolvedores em colaboração constante [9].</figcaption>
+            </figure>
+        </section>
+
+        <!-- Valores em Grid Responsivo -->
+        <section class="valores-secao">
+            <h2>Por que existimos?</h2>
+            <div class="grid-valores">
+                <div class="valor-card">
+                    <span class="icone">🚀</span>
+                    <h3>Inovação</h3>
+                    <p>Ensinamos as tecnologias que o mercado exige hoje, como React e CSS Grid [10].</p>
+                </div>
+                <div class="valor-card">
+                    <span class="icone">📱</span>
+                    <h3>Responsividade</h3>
+                    <p>Nossos sites se adaptam a qualquer tela, do iPhone ao Desktop [11].</p>
+                </div>
+                <div class="valor-card">
+                    <span class="icone">♿</span>
+                    <h3>Acessibilidade</h3>
+                    <p>Usamos unidades relativas (REM) e HTML semântico para uma web inclusiva [12].</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>Rua da Tecnologia, 1024, Capanema - PR</p>
-        <p>Telefone: (46) 9999-8888 | E-mail: contato@devacademy.com</p>
-        <p>&copy; 2026 DevAcademy - Todos os direitos reservados.</p>
+    <footer class="rodape-moderno">
+        <div class="contato-footer">
+            <p>Rua da Tecnologia, 1024 - Paraná [13]</p>
+            <p>contato@devacademy.com</p>
+        </div>
+        <p class="copyright">&copy; 2026 DevAcademy - Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>

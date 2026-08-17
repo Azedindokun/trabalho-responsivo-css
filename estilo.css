@@ -1,125 +1,78 @@
-/* Variáveis de Design */
-:root {
-    --bg-dark: #0f172a;
-    --accent: #38bdf8;
-    --text-main: #f8fafc;
-    --card-bg: #1e293b;
-    /* Tipografia Fluida: clamp(min, pref, max) */
-    --h1-size: clamp(2rem, 6vw, 3.5rem);
-    --body-size: clamp(1rem, 1.2vw, 1.125rem);
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    margin: 0;
-    display: grid; /* Grid para estrutura macro */
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-}
-
-/* Header com Flexbox */
-.cabecalho-principal {
+/* Layout Macro da Página Sobre */
+.sobre-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 5%;
-    background: rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    flex-direction: column;
+    gap: 4rem;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-.logo span { color: var(--accent); }
-
-.menu-flex {
-    display: flex;
-    list-style: none;
-    gap: 2rem; /* Espaçamento moderno [12] */
-}
-
-.menu-flex a {
-    color: var(--text-main);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.menu-flex a:hover { color: var(--accent); }
-
-/* Hero Section com Imagem de Fundo */
-.hero-section {
-    height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80');
+/* Seção de Impacto (Hero) */
+.sobre-hero {
+    padding: 6rem 5%;
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80');
     background-size: cover;
-    background-position: center;
-    display: flex; /* Flexbox para centralizar conteúdo [9] */
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
 
-h1 { font-size: var(--h1-size); margin-bottom: 1rem; line-height: 1.2; }
-
-/* Grid de Cursos Responsivo [13, 14] */
-.container-grid-cursos {
+/* Grid de História: 1 coluna no mobile, 2 no desktop */
+.historia-grid {
     display: grid;
-    /* Responsividade sem media queries: colunas que se ajustam sozinhas */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 4rem 5%;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    padding: 0 10%;
+    align-items: center; /* Centraliza verticalmente com Grid [16] */
 }
 
-.curso-card {
-    background: var(--card-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s, outline 0.2s;
+.texto-historia h2 {
+    color: var(--accent);
+    margin-bottom: 1.5rem;
 }
 
-.curso-card:hover {
-    transform: translateY(-10px);
-    outline: 2px solid var(--accent); /* Outline obrigatório */
-}
-
-/* Imagens Responsivas [15, 16] */
-.curso-card img {
+.imagem-historia img {
     width: 100%;
-    height: 200px;
-    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer [17] */
+    border-radius: 15px;
+    box-shadow: 20px 20px 0px var(--accent); /* Detalhe visual moderno */
 }
 
-.card-info { padding: 1.5rem; }
-
-.btn-cta {
-    background: var(--accent);
-    color: #000;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
+/* Grid de Valores com Responsividade Automática */
+.valores-secao {
+    padding: 4rem 10%;
+    background-color: #111b2d;
 }
 
-/* Rodapé */
-.rodape-moderno {
-    background: #020617;
-    padding: 3rem 5%;
+.valores-secao h2 {
     text-align: center;
-    border-top: 1px solid #1e293b;
+    margin-bottom: 3rem;
 }
 
-/* Media Query para ajustes finos em telas pequenas [18] */
-@media (max-width: 600px) {
-    .cabecalho-principal { flex-direction: column; gap: 1rem; }
-    .hero-section { height: 40vh; }
+.grid-valores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.valor-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border-top: 4px solid var(--accent);
+    transition: transform 0.3s;
+}
+
+.valor-card:hover {
+    transform: scale(1.05); /* Feedback visual ao passar o mouse [17] */
+}
+
+.valor-card .icone {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Ajustes de Media Query */
+@media (max-width: 768px) {
+    .historia-grid {
+        padding: 0 5%;
+    }
 }
