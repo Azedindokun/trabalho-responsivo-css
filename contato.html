@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
-    <title>DevAcademy - Layout com CSS Grid</title>
+    <title>Contato | DevAcademy</title>
 </head>
 <body>
-    <header class="cabecalho">
-        <h1>DevAcademy</h1>
-        <p id="slogan">O futuro é construído com código</p>
+    <header class="cabecalho-principal">
+        <a href="index.html" class="logo">Dev<span>Academy</span></a>
         <nav>
-            <ul class="menu-grid">
+            <ul class="menu-flex">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
@@ -19,35 +18,34 @@
         </nav>
     </header>
 
-    <main class="grid-principal">
-        <section class="boas-vindas">
-            <h2>Bem-vindo à Era do Grid</h2>
-            <p>O CSS Grid permite criar layouts complexos de forma simples e organizada [10].</p>
-        </section>
+    <main style="padding: 5rem 10%;">
+        <h2 style="text-align: center;">Fale Conosco</h2>
+        <form action="#" method="post" id="form-contato">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome aqui..." required>
 
-        <!-- Seção de Cursos utilizando uma grade de cartões responsiva -->
-        <section class="secao-cursos">
-            <h2>Nossos Cursos</h2>
-            <div class="container-cards">
-                <article class="card">
-                    <h3>Fundamentos</h3>
-                    <p>HTML5 e CSS3 Moderno</p>
-                </article>
-                <article class="card">
-                    <h3>Layouts</h3>
-                    <p>Flexbox e Grid Avançado</p>
-                </article>
-                <article class="card">
-                    <h3>Scripts</h3>
-                    <p>JavaScript e Lógica</p>
-                </article>
+            <label for="email">E-mail Corporativo</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="interesse">Área de Interesse</label>
+            <select id="interesse" name="interesse">
+                <option value="frontend">Desenvolvimento Front-end</option>
+                <option value="backend">Desenvolvimento Back-end</option>
+                <option value="uiux">UI/UX Design</option>
+            </select>
+
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+
+            <div style="display: flex; gap: 1rem;">
+                <input type="submit" value="Enviar Mensagem" style="background: var(--accent); color: #000; font-weight: bold; cursor: pointer; flex: 2;">
+                <input type="reset" value="Limpar" style="cursor: pointer; flex: 1;">
             </div>
-        </section>
+        </form>
     </main>
 
-    <footer class="rodape">
-        <p>Rua da Tecnologia, 1024, Capanema - PR</p>
-        <p>&copy; 2026 DevAcademy</p>
+    <footer class="footer-final">
+        <p>&copy; 2026 DevAcademy.</p>
     </footer>
 </body>
 </html>
