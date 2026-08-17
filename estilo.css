@@ -1,132 +1,125 @@
-/* Reset e Estilos de Texto */
+/* Variáveis de Design */
+:root {
+    --bg-dark: #0f172a;
+    --accent: #38bdf8;
+    --text-main: #f8fafc;
+    --card-bg: #1e293b;
+    /* Tipografia Fluida: clamp(min, pref, max) */
+    --h1-size: clamp(2rem, 6vw, 3.5rem);
+    --body-size: clamp(1rem, 1.2vw, 1.125rem);
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
     margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    /* Define o corpo como um container flex para empilhar header, main e footer verticalmente */
-    display: flex;
-    flex-direction: column;
+    display: grid; /* Grid para estrutura macro */
+    grid-template-rows: auto 1fr auto;
     min-height: 100vh;
 }
 
-/* Cabeçalho Responsivo */
-header {
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/header-bg.jpg');
-    background-size: cover;
-    color: white;
-    padding: 3rem 1rem;
-    text-align: center;
+/* Header com Flexbox */
+.cabecalho-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-#slogan {
-    font-size: 1.2rem;
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
     text-transform: uppercase;
 }
 
-/* Menu de Navegação com Flexbox [6, 7] */
-.menu {
-    display: flex; /* Habilita o contexto flex [5] */
-    justify-content: center; /* Centraliza os itens no eixo principal [8] */
-    flex-wrap: wrap; /* Permite que os links quebrem linha se necessário [9, 10] */
-    gap: 20px; /* Espaçamento moderno entre itens [11, 12] */
+.logo span { color: var(--accent); }
+
+.menu-flex {
+    display: flex;
     list-style: none;
-    padding: 1rem 0;
-    background: #333;
-    margin: 0;
+    gap: 2rem; /* Espaçamento moderno [12] */
 }
 
-.menu a {
-    color: #ffd700;
+.menu-flex a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.menu-flex a:hover { color: var(--accent); }
+
+/* Hero Section com Imagem de Fundo */
+.hero-section {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex; /* Flexbox para centralizar conteúdo [9] */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 { font-size: var(--h1-size); margin-bottom: 1rem; line-height: 1.2; }
+
+/* Grid de Cursos Responsivo [13, 14] */
+.container-grid-cursos {
+    display: grid;
+    /* Responsividade sem media queries: colunas que se ajustam sozinhas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 5%;
+}
+
+.curso-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, outline 0.2s;
+}
+
+.curso-card:hover {
+    transform: translateY(-10px);
+    outline: 2px solid var(--accent); /* Outline obrigatório */
+}
+
+/* Imagens Responsivas [15, 16] */
+.curso-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer [17] */
+}
+
+.card-info { padding: 1.5rem; }
+
+.btn-cta {
+    background: var(--accent);
+    color: #000;
+    padding: 1rem 2rem;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 15px;
-}
-
-/* Conteúdo Principal */
-main {
-    flex: 1; /* Faz o conteúdo principal crescer para ocupar o espaço disponível [13, 14] */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza as seções no eixo transversal [15] */
-}
-
-section {
-    background: white;
-    padding: 2rem;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 900px; /* Limita a largura em telas grandes [16] */
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Tabela e Formulário Responsivos */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-}
-
-#form-contato {
-    display: flex;
-    flex-direction: column; /* Itens do formulário um abaixo do outro [17] */
-    gap: 10px;
-}
-
-input:focus, textarea:focus {
-    outline: 2px solid #ffd700;
+    display: inline-block;
 }
 
 /* Rodapé */
-footer {
-    background: #222;
-    color: white;
+.rodape-moderno {
+    background: #020617;
+    padding: 3rem 5%;
     text-align: center;
-    padding: 1.5rem;
-    font-size: 0.9rem;
+    border-top: 1px solid #1e293b;
 }
 
-/* ---------------------------------------------------
-   MEDIA QUERIES - RESPONSIVIDADE [3, 18]
---------------------------------------------------- */
-
-/* Tablets e Telas Médias (até 800px) */
-@media (max-width: 800px) {
-    .menu {
-        justify-content: space-around; /* Distribui o espaço entre itens [8, 19] */
-    }
-    
-    section {
-        max-width: 95%;
-        padding: 1.5rem;
-    }
-}
-
-/* Celulares (até 500px) [3] */
-@media (max-width: 500px) {
-    .menu {
-        flex-direction: column; /* Empilha o menu verticalmente em telas pequenas [3, 17] */
-        align-items: center;
-    }
-
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    /* Ajuste para tabelas em telas muito pequenas */
-    table {
-        font-size: 0.8rem;
-    }
-    
-    th, td {
-        padding: 8px;
-    }
+/* Media Query para ajustes finos em telas pequenas [18] */
+@media (max-width: 600px) {
+    .cabecalho-principal { flex-direction: column; gap: 1rem; }
+    .hero-section { height: 40vh; }
 }

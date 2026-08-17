@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
-    <title>Contato - DevAcademy</title>
+    <title>DevAcademy - Layout com CSS Grid</title>
 </head>
 <body>
-    <header>
+    <header class="cabecalho">
         <h1>DevAcademy</h1>
-        <p id="slogan">Transformando o futuro através do código</p>
+        <p id="slogan">O futuro é construído com código</p>
         <nav>
-            <ul class="menu">
+            <ul class="menu-grid">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
@@ -19,38 +19,35 @@
         </nav>
     </header>
 
-    <main>
-        <section id="secao-contato">
-            <h2>Fale Conosco</h2>
-            <form action="#" method="post" id="form-contato">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
+    <main class="grid-principal">
+        <section class="boas-vindas">
+            <h2>Bem-vindo à Era do Grid</h2>
+            <p>O CSS Grid permite criar layouts complexos de forma simples e organizada [10].</p>
+        </section>
 
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="interesse">Interesse:</label>
-                <select id="interesse" name="interesse">
-                    <option value="frontend">Front-end</option>
-                    <option value="backend">Back-end</option>
-                    <option value="fullstack">Full Stack</option>
-                </select>
-
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="5"></textarea>
-
-                <div class="botoes">
-                    <input type="submit" value="Enviar">
-                    <input type="reset" value="Limpar">
-                </div>
-            </form>
+        <!-- Seção de Cursos utilizando uma grade de cartões responsiva -->
+        <section class="secao-cursos">
+            <h2>Nossos Cursos</h2>
+            <div class="container-cards">
+                <article class="card">
+                    <h3>Fundamentos</h3>
+                    <p>HTML5 e CSS3 Moderno</p>
+                </article>
+                <article class="card">
+                    <h3>Layouts</h3>
+                    <p>Flexbox e Grid Avançado</p>
+                </article>
+                <article class="card">
+                    <h3>Scripts</h3>
+                    <p>JavaScript e Lógica</p>
+                </article>
+            </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="rodape">
         <p>Rua da Tecnologia, 1024, Capanema - PR</p>
-        <p>Telefone: (46) 9999-8888 | E-mail: contato@devacademy.com</p>
-        <p>&copy; 2026 DevAcademy - Todos os direitos reservados.</p>
+        <p>&copy; 2026 DevAcademy</p>
     </footer>
 </body>
 </html>
