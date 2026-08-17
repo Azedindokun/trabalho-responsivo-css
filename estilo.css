@@ -1,259 +1,174 @@
+/* =========================================
+   PÁGINA DE CONTATO (ESTILO MODERNO)
+   ========================================= */
+
+/* Variáveis para consistência */
 :root {
-    --bg-dark: #0f172a;
-    --accent: #38bdf8;
-    --text-main: #f8fafc;
-    --card-bg: #1e293b;
-    --text-secondary: #cbd5e1;
+    --gap-campos: 1.5rem; /* ~24px */
+    --cor-borda: #334155;
+    --cor-foco: #38bdf8;
+    --cor-texto-secundario: #cbd5e1;
+    /* Tipografia fluida: clamp(mínimo, preferido, máximo) */
+    --tamanho-titulo: clamp(1.8rem, 5vw, 2.5rem);
 }
 
-/* Configurações gerais */
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    margin: 0;
-    line-height: 1.6;
-}
-
-/* CABEÇALHO */
-.cabecalho-principal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    background-color: #0f172a;
-    border-bottom: 1px solid #334155;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.logo span {
-    color: var(--accent);
-}
-
-/* MENU */
-.menu-flex {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-
-.menu-flex a {
-    color: var(--text-main);
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.menu-flex a:hover {
-    color: var(--accent);
-}
-
-/* CONTEÚDO PRINCIPAL */
-.grid-principal {
+.pagina-contato {
     width: 100%;
-}
-
-/* HERO */
-.hero-section {
-    min-height: 550px;
+    /* Substituído min-height fixo por flex: 1 para empurrar o rodapé */
+    flex: 1; 
+    padding: clamp(2rem, 8vw, 5rem) 1.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 80px 20px;
-
-    background:
-        linear-gradient(
-            rgba(15, 23, 42, 0.75),
-            rgba(15, 23, 42, 0.75)
-        ),
-        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80');
-
-    background-size: cover;
-    background-position: center;
 }
 
-.hero-conteudo {
-    max-width: 900px;
-}
-
-.hero-section h1 {
-    font-size: 55px;
-    line-height: 1.1;
-    margin: 0 0 20px;
-}
-
-.hero-section p {
-    font-size: 20px;
-    color: var(--text-secondary);
-    margin-bottom: 35px;
-}
-
-/* BOTÃO */
-.btn-cta {
-    display: inline-block;
-    background-color: var(--accent);
-    color: #0f172a;
-    padding: 14px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 20px rgba(56, 189, 248, 0.3);
-}
-
-/* SEÇÃO DOS CURSOS */
-.secao-cursos {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 30px;
-}
-
-.secao-cursos h2 {
-    text-align: center;
-    font-size: 38px;
-    margin-bottom: 50px;
-}
-
-/* GRID DOS CARDS */
-.container-grid-cursos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-/* CARD */
-.curso-card {
-    background-color: var(--card-bg);
-    border: 1px solid #334155;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.curso-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent);
-}
-
-/* IMAGENS */
-.curso-card figure {
-    margin: 0;
-}
-
-.curso-card img {
+.contato-section {
     width: 100%;
-    height: 220px;
-    display: block;
-    object-fit: cover;
+    max-width: 780px;
+    margin: 0 auto;
 }
 
-.curso-card figcaption {
-    padding: 10px 20px;
-    color: var(--accent);
-    font-size: 14px;
+.contato-section h1 {
+    text-align: center;
+    font-size: var(--tamanho-titulo);
+    margin-bottom: 1rem;
+    color: #f8fafc;
 }
 
-/* TEXTO DO CARD */
-.card-info {
-    padding: 20px;
+.contato-introducao {
+    text-align: center;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 2.5rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
 }
 
-.card-info h3 {
-    margin-top: 0;
-    font-size: 24px;
+/* FORMULÁRIO */
+
+#form-contato {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-campos); /* Espaçamento controlado pelo container [1] */
+    background-color: transparent;
 }
 
-.card-info p {
-    color: var(--text-secondary);
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem; /* ~10px */
 }
 
-/* ASIDE */
-.info-extra {
-    max-width: 1000px;
-    margin: 0 auto 80px;
-    padding: 30px;
-    background-color: var(--card-bg);
-    border-left: 4px solid var(--accent);
-    border-radius: 8px;
+.campo-formulario label {
+    font-size: 1.125rem; /* ~18px */
+    color: #f8fafc;
+    font-weight: 500;
 }
 
-.info-extra h3 {
-    margin-top: 0;
-    color: var(--accent);
+/* CAMPOS DE ENTRADA */
+
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+    width: 100%;
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho [2] */
+    padding: 1.125rem 1.25rem;
+    background-color: #1e293b;
+    color: #f8fafc;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* RODAPÉ */
+.campo-formulario input, 
+.campo-formulario select {
+    height: 3.5rem; /* Altura baseada em REM para acessibilidade [3] */
+}
+
+.campo-formulario textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+/* FOCO E ACESSIBILIDADE */
+
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
+    outline: none;
+    border-color: var(--cor-foco);
+    /* Adicionado efeito de brilho suave para melhor feedback visual [4] */
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+}
+
+/* BOTÕES USANDO FLEXBOX */
+
+.botoes-formulario {
+    width: 100%;
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+.botao-enviar,
+.botao-limpar {
+    height: 3.75rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.botao-enviar {
+    flex: 2; /* Ocupa 2/3 do espaço [5] */
+    background-color: var(--cor-foco);
+    color: #0f172a;
+    border: none;
+}
+
+.botao-limpar {
+    flex: 1; /* Ocupa 1/3 do espaço [5] */
+    background-color: #1e293b;
+    color: #f8fafc;
+    border: 1px solid var(--cor-borda);
+}
+
+.botao-enviar:hover {
+    background-color: #0ea5e9;
+    transform: translateY(-2px); /* Feedback de movimento */
+}
+
+.botao-limpar:hover {
+    border-color: var(--cor-foco);
+    color: var(--cor-foco);
+}
+
+/* =========================================
+   RODAPÉ (AJUSTADO)
+   ========================================= */
+
 .rodape-moderno {
     background-color: #020617;
-    padding: 40px 8%;
+    padding: 3rem 1.25rem;
     text-align: center;
     border-top: 1px solid #1e293b;
+    margin-top: auto; /* Garante que o rodapé fique no fim em páginas curtas [6, 7] */
 }
 
-.contato-footer p {
-    margin: 5px;
-    color: var(--text-secondary);
-}
+/* =========================================
+   RESPONSIVIDADE (MOBILE-FIRST ADAPTADO)
+   ========================================= */
 
-.copyright {
-    margin-top: 25px;
-    color: #64748b;
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-
-    .cabecalho-principal {
-        flex-direction: column;
-        gap: 15px;
+@media (max-width: 600px) {
+    .botoes-formulario {
+        flex-direction: column; /* Empilha os botões no celular [8, 9] */
     }
 
-    .menu-flex {
-        gap: 15px;
+    .botao-enviar,
+    .botao-limpar {
+        width: 100%;
+        flex: none; /* Remove a proporção 2:1 no mobile */
     }
-
-    .hero-section {
-        min-height: 450px;
-        padding: 60px 20px;
-    }
-
-    .hero-section h1 {
-        font-size: 38px;
-    }
-
-    .hero-section p {
-        font-size: 17px;
-    }
-
-    .container-grid-cursos {
-        grid-template-columns: 1fr;
-    }
-
-    .secao-cursos h2 {
-        font-size: 30px;
-    }
-
 }
