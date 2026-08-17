@@ -1,174 +1,222 @@
 /* =========================================
-   PÁGINA DE CONTATO (ESTILO MODERNO)
+   CONFIGURAÇÕES GLOBAIS E VARIÁVEIS
    ========================================= */
-
-/* Variáveis para consistência */
 :root {
-    --gap-campos: 1.5rem; /* ~24px */
-    --cor-borda: #334155;
-    --cor-foco: #38bdf8;
-    --cor-texto-secundario: #cbd5e1;
-    /* Tipografia fluida: clamp(mínimo, preferido, máximo) */
-    --tamanho-titulo: clamp(1.8rem, 5vw, 2.5rem);
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --accent: #38bdf8;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --border-color: #334155;
+    
+    /* Tipografia Fluida (mínimo, preferido, máximo) */
+    --h1-size: clamp(2.2rem, 8vw, 4rem);
+    --h2-size: clamp(1.6rem, 5vw, 2.5rem);
+    --body-size: clamp(1rem, 1vw + 0.5rem, 1.125rem); /* REM para acessibilidade */
 }
 
-.pagina-contato {
-    width: 100%;
-    /* Substituído min-height fixo por flex: 1 para empurrar o rodapé */
-    flex: 1; 
-    padding: clamp(2rem, 8vw, 5rem) 1.25rem;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif; /* font-family */
+    background-color: var(--bg-dark); /* cor de fundo */
+    color: var(--text-primary);
+    line-height: 1.6; /* line-height */
+    
+    /* Grid Macro: Cabeçalho, Conteúdo, Rodapé */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* =========================================
+   CABEÇALHO E NAVEGAÇÃO (FLEXBOX)
+   ========================================= */
+header {
+    background-color: rgba(15, 23, 42, 0.95);
+    padding: 1.5rem 5%;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center; /* text-align */
+}
+
+.logo-box h1 {
+    font-size: 1.8rem;
+    text-transform: uppercase; /* text-transform */
+    color: var(--accent);
+}
+
+#slogan { /* Seletor de ID */
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.menu { /* Seletor de Classe */
     display: flex;
     justify-content: center;
-    align-items: center;
+    list-style: none;
+    gap: 2rem;
 }
 
-.contato-section {
-    width: 100%;
-    max-width: 780px;
-    margin: 0 auto;
+.menu a {
+    color: var(--text-primary);
+    text-decoration: none; /* text-decoration */
+    font-weight: 600; /* font-weight */
+    transition: color 0.3s;
 }
 
-.contato-section h1 {
+.menu a:hover {
+    color: var(--accent);
+}
+
+/* =========================================
+   PÁGINA INICIAL - HERO E GRIDS
+   ========================================= */
+.hero {
+    padding: clamp(4rem, 10vw, 8rem) 5%;
+    background-image: linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.7)), 
+                      url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200'); /* imagem de fundo */
+    background-size: cover;
+    background-position: center;
     text-align: center;
-    font-size: var(--tamanho-titulo);
+}
+
+.hero h1 {
+    font-size: var(--h1-size);
+}
+
+/* Grid de Cursos Automático */
+.grid-cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsividade automática */
+    gap: 2rem;
+    padding: 4rem 5%;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 15px; /* bordas */
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    outline: 2px solid var(--accent); /* Outline obrigatório */
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
     margin-bottom: 1rem;
-    color: #f8fafc;
 }
 
-.contato-introducao {
-    text-align: center;
-    color: var(--cor-texto-secundario);
-    margin-bottom: 2.5rem;
-    font-size: clamp(1rem, 2vw, 1.125rem);
+/* =========================================
+   TABELA ESTILIZADA
+   ========================================= */
+.secao-tabela {
+    padding: 4rem 5%;
+    overflow-x: auto;
 }
 
-/* FORMULÁRIO */
-
-#form-contato {
+table {
     width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+th, td {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+th {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================
+   FORMULÁRIO DE CONTATO
+   ========================================= */
+#form-contato {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-campos); /* Espaçamento controlado pelo container [1] */
-    background-color: transparent;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 2rem auto;
 }
 
 .campo-formulario {
     display: flex;
     flex-direction: column;
-    gap: 0.625rem; /* ~10px */
+    gap: 0.5rem;
 }
 
-.campo-formulario label {
-    font-size: 1.125rem; /* ~18px */
-    color: #f8fafc;
-    font-weight: 500;
-}
-
-/* CAMPOS DE ENTRADA */
-
-.campo-formulario input,
-.campo-formulario select,
-.campo-formulario textarea {
-    width: 100%;
-    box-sizing: border-box; /* Garante que padding não aumente o tamanho [2] */
-    padding: 1.125rem 1.25rem;
-    background-color: #1e293b;
-    color: #f8fafc;
-    border: 1px solid var(--cor-borda);
-    border-radius: 12px;
-    font-family: inherit;
+input, select, textarea {
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: white;
+    border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.campo-formulario input, 
-.campo-formulario select {
-    height: 3.5rem; /* Altura baseada em REM para acessibilidade [3] */
-}
-
-.campo-formulario textarea {
-    min-height: 160px;
-    resize: vertical;
-}
-
-/* FOCO E ACESSIBILIDADE */
-
-.campo-formulario input:focus,
-.campo-formulario select:focus,
-.campo-formulario textarea:focus {
+input:focus, textarea:focus {
     outline: none;
-    border-color: var(--cor-foco);
-    /* Adicionado efeito de brilho suave para melhor feedback visual [4] */
-    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1); /* Feedback visual */
 }
 
-/* BOTÕES USANDO FLEXBOX */
-
-.botoes-formulario {
-    width: 100%;
-    display: flex;
-    gap: 1.25rem;
-    margin-top: 1rem;
-}
-
-.botao-enviar,
-.botao-limpar {
-    height: 3.75rem;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 700;
+.btn-enviar {
+    background: var(--accent);
+    color: var(--bg-dark);
+    font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.botao-enviar {
-    flex: 2; /* Ocupa 2/3 do espaço [5] */
-    background-color: var(--cor-foco);
-    color: #0f172a;
     border: none;
-}
-
-.botao-limpar {
-    flex: 1; /* Ocupa 1/3 do espaço [5] */
-    background-color: #1e293b;
-    color: #f8fafc;
-    border: 1px solid var(--cor-borda);
-}
-
-.botao-enviar:hover {
-    background-color: #0ea5e9;
-    transform: translateY(-2px); /* Feedback de movimento */
-}
-
-.botao-limpar:hover {
-    border-color: var(--cor-foco);
-    color: var(--cor-foco);
+    padding: 1rem;
 }
 
 /* =========================================
-   RODAPÉ (AJUSTADO)
+   RODAPÉ
    ========================================= */
-
-.rodape-moderno {
+footer {
     background-color: #020617;
-    padding: 3rem 1.25rem;
+    padding: 3rem 5%;
+    border-top: 1px solid var(--border-color);
     text-align: center;
-    border-top: 1px solid #1e293b;
-    margin-top: auto; /* Garante que o rodapé fique no fim em páginas curtas [6, 7] */
+    font-size: 0.9rem;
+}
+
+.contato-footer {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
 }
 
 /* =========================================
-   RESPONSIVIDADE (MOBILE-FIRST ADAPTADO)
+   MEDIA QUERIES (BREAKPOINTS)
    ========================================= */
-
-@media (max-width: 600px) {
-    .botoes-formulario {
-        flex-direction: column; /* Empilha os botões no celular [8, 9] */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        gap: 1rem;
     }
-
-    .botao-enviar,
-    .botao-limpar {
-        width: 100%;
-        flex: none; /* Remove a proporção 2:1 no mobile */
+    
+    .hero {
+        padding: 4rem 5%;
     }
 }
