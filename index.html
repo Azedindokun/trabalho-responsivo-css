@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
-    <title>DevAcademy - Início</title>
+    <title>DevAcademy | O Futuro do Código</title>
 </head>
+
 <body>
-    <header>
-        <h1>DevAcademy</h1>
-        <p id="slogan">Transformando o futuro através do código</p>
+
+    <header class="cabecalho-principal">
+        <div class="logo">Dev<span>Academy</span></div>
+
         <nav>
-            <ul class="menu">
+            <ul class="menu-flex">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
@@ -19,43 +21,93 @@
         </nav>
     </header>
 
-    <main>
-        <section class="conteudo-principal">
-            <h2>Nossas Trilhas de Aprendizado</h2>
-            <p>O desenvolvimento web é a área responsável pela criação de sites e aplicações que facilitam o acesso a serviços e informações [7, 8].</p>
+    <main class="grid-principal">
+
+        <section class="hero-section">
+            <div class="hero-conteudo">
+                <h1>Domine a Web com <br>Tecnologia de Ponta</h1>
+
+                <p>
+                    Aprenda do zero ao avançado com quem vive o mercado.
+                </p>
+
+                <a href="#cursos" class="btn-cta">Ver Cursos</a>
+            </div>
         </section>
 
-        <section id="tabela-cursos">
-            <h2>Grade de Cursos 2026</h2>
-            <table>
-                <tr>
-                    <th>Nível</th>
-                    <th>Tecnologia</th>
-                    <th>Duração</th>
-                </tr>
-                <tr>
-                    <td>Iniciante</td>
-                    <td>HTML5 e CSS3</td>
-                    <td>40 horas</td>
-                </tr>
-                <tr>
-                    <td>Médio</td>
-                    <td>JavaScript e Flexbox</td>
-                    <td>60 horas</td>
-                </tr>
-                <tr>
-                    <td>Avançado</td>
-                    <td>React e Back-end</td>
-                    <td>100 horas</td>
-                </tr>
-            </table>
+        <section id="cursos" class="secao-cursos">
+            <h2>Nossas Trilhas de Conhecimento</h2>
+
+            <div class="container-grid-cursos">
+
+                <article class="curso-card">
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=400&q=80"
+                            alt="Código HTML">
+
+                        <figcaption>Fundamentos Web</figcaption>
+                    </figure>
+
+                    <div class="card-info">
+                        <h3>HTML5 & CSS3</h3>
+                        <p>O esqueleto e a pele da web moderna.</p>
+                    </div>
+                </article>
+
+                <article class="curso-card">
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?auto=format&fit=crop&w=400&q=80"
+                            alt="JavaScript">
+
+                        <figcaption>Lógica e Interação</figcaption>
+                    </figure>
+
+                    <div class="card-info">
+                        <h3>JavaScript</h3>
+                        <p>O cérebro que dá vida às aplicações.</p>
+                    </div>
+                </article>
+
+                <article class="curso-card">
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=400&q=80"
+                            alt="React">
+
+                        <figcaption>Modernidade</figcaption>
+                    </figure>
+
+                    <div class="card-info">
+                        <h3>React & Grid</h3>
+                        <p>Interfaces robustas e layouts bidimensionais.</p>
+                    </div>
+                </article>
+
+            </div>
         </section>
+
+        <aside class="info-extra">
+            <h3>Por que estudar aqui?</h3>
+
+            <p>
+                Mais de 51% do tráfego web hoje é mobile; nossos cursos
+                focam em design responsivo desde a primeira aula.
+            </p>
+        </aside>
+
     </main>
 
-    <footer>
-        <p>Rua da Tecnologia, 1024, Capanema - PR</p>
-        <p>Telefone: (46) 9999-8888 | E-mail: contato@devacademy.com</p>
-        <p>&copy; 2026 DevAcademy - Todos os direitos reservados.</p>
+    <footer class="rodape-moderno">
+
+        <div class="contato-footer">
+            <p>Rua da Tecnologia, 1024 - Paraná</p>
+            <p>contato@devacademy.com</p>
+        </div>
+
+        <p class="copyright">
+            &copy; 2026 DevAcademy - Todos os direitos reservados.
+        </p>
+
     </footer>
+
 </body>
 </html>
