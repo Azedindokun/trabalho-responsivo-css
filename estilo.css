@@ -1,86 +1,88 @@
-/* Seletores de Elemento e Variáveis de Medida */
+/* Reset e Estilos de Texto */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* font-family [15] */
-    background-color: #f4f4f9; /* cor de fundo [4] */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    line-height: 1.6; /* line-height [17] */
+    line-height: 1.6;
+    /* Define o corpo como um container flex para empilhar header, main e footer verticalmente */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Cabeçalho e Flexbox */
+/* Cabeçalho Responsivo */
 header {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/header-bg.jpg'); /* imagem de fundo [4] */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/header-bg.jpg');
+    background-size: cover;
     color: white;
-    text-align: center; /* text-align [17] */
-    padding: 2rem 0; /* padding com rem [18] */
+    padding: 3rem 1rem;
+    text-align: center;
 }
 
-#slogan { /* Seletor de ID [16] */
+#slogan {
     font-size: 1.2rem;
-    text-transform: uppercase; /* text-transform [17] */
+    text-transform: uppercase;
 }
 
-/* Menu com Flexbox [3] */
-.menu { /* Seletor de Classe [16] */
-    display: flex; /* propriedade display [3] */
-    justify-content: center; /* alinhamento flexbox [19] */
+/* Menu de Navegação com Flexbox [6, 7] */
+.menu {
+    display: flex; /* Habilita o contexto flex [5] */
+    justify-content: center; /* Centraliza os itens no eixo principal [8] */
+    flex-wrap: wrap; /* Permite que os links quebrem linha se necessário [9, 10] */
+    gap: 20px; /* Espaçamento moderno entre itens [11, 12] */
     list-style: none;
-    padding: 0;
-}
-
-.menu li {
-    margin: 0 15px; /* margin com px [18] */
+    padding: 1rem 0;
+    background: #333;
+    margin: 0;
 }
 
 .menu a {
     color: #ffd700;
-    text-decoration: none; /* text-decoration [17] */
-    font-weight: bold; /* font-weight [15] */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
 }
 
-/* Seções e Espaçamento */
-section {
+/* Conteúdo Principal */
+main {
+    flex: 1; /* Faz o conteúdo principal crescer para ocupar o espaço disponível [13, 14] */
     padding: 20px;
-    margin: 20px auto;
-    max-width: 80%; /* medida % [18] */
-    background: white;
-    border: 1px solid #ddd; /* bordas [4] */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza as seções no eixo transversal [15] */
 }
 
-/* Estilização da Tabela [6, 20] */
+section {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 900px; /* Limita a largura em telas grandes [16] */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Tabela e Formulário Responsivos */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
 th, td {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     padding: 12px;
     text-align: left;
 }
 
-th {
-    background-color: #333;
-    color: white;
-}
-
-/* Estilização do Formulário [11, 12] */
 #form-contato {
     display: flex;
-    flex-direction: column; /* flex-direction [21] */
+    flex-direction: column; /* Itens do formulário um abaixo do outro [17] */
+    gap: 10px;
 }
 
-input, select, textarea {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #aaa;
-}
-
-/* Outline aplicado no foco dos campos */
-input:focus {
-    outline: 2px solid #ffd700; /* outline obrigatório [4] */
+input:focus, textarea:focus {
+    outline: 2px solid #ffd700;
 }
 
 /* Rodapé */
@@ -88,6 +90,43 @@ footer {
     background: #222;
     color: white;
     text-align: center;
-    padding: 1rem;
-    font-size: 0.9em; /* medida em [18] */
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------
+   MEDIA QUERIES - RESPONSIVIDADE [3, 18]
+--------------------------------------------------- */
+
+/* Tablets e Telas Médias (até 800px) */
+@media (max-width: 800px) {
+    .menu {
+        justify-content: space-around; /* Distribui o espaço entre itens [8, 19] */
+    }
+    
+    section {
+        max-width: 95%;
+        padding: 1.5rem;
+    }
+}
+
+/* Celulares (até 500px) [3] */
+@media (max-width: 500px) {
+    .menu {
+        flex-direction: column; /* Empilha o menu verticalmente em telas pequenas [3, 17] */
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Ajuste para tabelas em telas muito pequenas */
+    table {
+        font-size: 0.8rem;
+    }
+    
+    th, td {
+        padding: 8px;
+    }
 }
